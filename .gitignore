@@ -186,13 +186,16 @@ __pycache__/
 .env.*
 
 # Documentación y archivos de prueba (agregados por el usuario)
-# Carpeta de documentación
-docs/
+# Carpeta de documentación temporal
+docs/temp/
 
 # Archivos de prueba Python
 test_*.py
 prueba_*.py
 *test*.py
 
-# Archivos Markdown
-*.md
+# Archivos Markdown temporales o de desarrollo (mantener documentación importante)
+*_temp.md
+*_draft.md
+*_backup.md
+# Nota: README.md, SETUP_GUIDE.md y otros archivos de documentación SÍ se incluyen

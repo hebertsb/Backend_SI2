@@ -6,7 +6,29 @@ Esta guía contiene todos los endpoints necesarios para implementar la funcional
 
 **Base URL**: `http://127.0.0.1:8000/api`
 
-## 🔐 Autenticación Requerida
+## � Setup Rápido del Backend
+
+Para configurar el backend completo con un solo comando:
+
+```bash
+# Configurar base de datos y cargar todos los datos de prueba
+python manage.py setup_database --reset
+
+# Solo cargar fixtures sin recrear la base de datos
+python manage.py setup_database --fixtures-only
+
+# Ver ayuda del comando
+python manage.py setup_database --help
+```
+
+Este comando unificado reemplaza todos los scripts anteriores y configura automáticamente:
+- ✅ Migraciones de Django
+- ✅ Datos de usuarios con autenticación
+- ✅ Catálogo de servicios
+- ✅ Descuentos y cupones
+- ✅ Reservas de prueba con reprogramaciones
+
+## �🔐 Autenticación Requerida
 
 Todos los endpoints requieren autenticación JWT:
 ```
@@ -15,7 +37,7 @@ Authorization: Bearer {token}
 Content-Type: application/json
 ```
 
-**Credenciales de prueba**:
+**Credenciales de prueba** (cargadas automáticamente):
 - **Admin**: `gabriel.moreno@autonoma.edu.bo` / `admin123`
 - **Usuario**: `juan.perez@autonoma.edu.bo` / `admin123`
 
@@ -320,11 +342,19 @@ mostrarHistorialReprogramaciones(historial);
 
 ## ✅ CHECKLIST DE IMPLEMENTACIÓN
 
+### Backend Setup (¡NUEVO PROCESO SIMPLIFICADO!)
+- [ ] ✅ Ejecutar `python manage.py setup_database --reset`
+- [ ] ✅ Verificar que el servidor inicia: `python manage.py runserver`
+- [ ] ✅ Probar login con credenciales de prueba
+
+### Endpoints de API
 - [ ] ✅ Endpoint `/api/reservas/{id}/` funcionando
 - [ ] ✅ Endpoint `/api/reservas/{id}/puede-reprogramar/` funcionando  
 - [ ] ✅ Endpoint `/api/reservas/{id}/reprogramar/` funcionando
 - [ ] ✅ Endpoint `/api/reservas/{id}/historial-reprogramaciones/` funcionando
 - [ ] ✅ Endpoint `/api/reglas-reprogramacion/activas/` funcionando
+
+### Frontend Implementation
 - [ ] ✅ Manejo de errores y validaciones
 - [ ] ✅ Interfaz de usuario para reprogramación
 - [ ] ✅ Mostrar historial de reprogramaciones
@@ -334,10 +364,20 @@ mostrarHistorialReprogramaciones(historial);
 
 ## 🎯 NOTAS IMPORTANTES
 
-1. **Todos los endpoints están verificados y funcionando** ✅
-2. **Las URLs NO llevan el prefijo `/reservas/`** - son directamente `/api/reglas-reprogramacion/`
-3. **El campo `puede_reprogramar` se calcula automáticamente** en cada respuesta de reserva
-4. **Las fechas deben enviarse en formato ISO 8601** con timezone
+1. **⚡ SETUP SIMPLIFICADO**: Un solo comando configura todo el backend
+   ```bash
+   python manage.py setup_database --reset
+   ```
+
+2. **Todos los endpoints están verificados y funcionando** ✅
+
+3. **Las URLs NO llevan el prefijo `/reservas/`** - son directamente `/api/reglas-reprogramacion/`
+
+4. **El campo `puede_reprogramar` se calcula automáticamente** en cada respuesta de reserva
+
+5. **Las fechas deben enviarse en formato ISO 8601** con timezone
+
+6. **Datos de prueba incluidos**: Usuarios, reservas, y configuraciones listas para usar
 5. **Solo usuarios ADMIN pueden gestionar reglas** de reprogramación
 6. **El historial se guarda automáticamente** en cada reprogramación
 

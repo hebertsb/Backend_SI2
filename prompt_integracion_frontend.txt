@@ -1,5 +1,25 @@
 # 🔒 Gestión y verificación de roles para usuario SOPORTE
 
+## 🚀 Setup Rápido del Backend
+
+**PASO 1**: Configurar el backend completo con un solo comando:
+
+```bash
+# Configurar base de datos completa con datos de prueba
+python manage.py setup_database --reset
+
+# Solo recargar fixtures
+python manage.py setup_database --fixtures-only
+```
+
+Este comando automáticamente configura:
+- ✅ Base de datos con migraciones
+- ✅ Usuarios con roles correctos (incluye soporte@autonoma.edu.bo)
+- ✅ Catálogo de servicios
+- ✅ Reservas de prueba
+
+**PASO 2**: Verificar que todo funciona:
+
 ## 1. Verificar rol actual del usuario "soporte@autonoma.edu.bo"
 
 - Consulta SQL para usuario:
@@ -17,7 +37,7 @@
   ```sql
   SELECT * FROM authz_rol ORDER BY id;
   ```
-- Según los seeds, deberían ser:
+- Según los fixtures cargados automáticamente:
   - ID 1 = ADMIN
   - ID 2 = OPERADOR
   - ID 3 = CLIENTE
@@ -69,12 +89,26 @@
 
 ---
 
-## Resumen de acción recomendada
+## 📝 Resumen de acción recomendada
 
-1. Verifica el rol actual del usuario con las consultas SQL.
-2. Si no tiene el rol SOPORTE (ID 4), asígnalo usando el endpoint `/api/usuarios/{id}/asignar-rol/` o por SQL.
-3. Confirma con el endpoint de listado que el usuario tiene el rol correcto.
+**¡NUEVO PROCESO SIMPLIFICADO!**
+
+1. **Ejecuta el setup automático**: `python manage.py setup_database --reset`
+   - ✅ Crea todos los usuarios con roles correctos
+   - ✅ Carga todos los datos de prueba necesarios
+   - ✅ Configura el sistema completo en segundos
+
+2. **Verifica que el usuario soporte existe**:
+   - Email: `soporte@autonoma.edu.bo`
+   - Password: `admin123`
+   - Rol: SOPORTE (ID 4)
+
+3. **Si necesitas hacer cambios manuales**:
+   - Usa el endpoint `/api/usuarios/{id}/asignar-rol/`
+   - O ejecuta las consultas SQL proporcionadas arriba
+
+**⚡ Todo está automatizado**: Ya no necesitas configurar usuarios manualmente. El comando `setup_database` configura el sistema completo con datos consistentes.
 
 ---
 
-¿Necesitas ejemplos de cómo hacer estas peticiones desde el frontend o scripts para automatizarlo?
+¿Necesitas ejemplos de cómo hacer estas peticiones desde el frontend?
