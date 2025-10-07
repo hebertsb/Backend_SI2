@@ -14,6 +14,9 @@ class ReservaServicioSerializer(serializers.ModelSerializer):
     tipo = serializers.CharField(source="servicio.tipo", read_only=True)
     titulo = serializers.CharField(source="servicio.titulo", read_only=True)
     precio_unitario = serializers.DecimalField(max_digits=12, decimal_places=2, read_only=True)
+    # fecha_servicio es un campo adicional que se puede enviar pero no se guarda en ReservaServicio
+    fecha_servicio = serializers.DateTimeField(write_only=True, required=False)
+    
     class Meta:
         model = ReservaServicio
         fields = ["servicio", "tipo", "titulo", "cantidad", "precio_unitario", "fecha_servicio"]

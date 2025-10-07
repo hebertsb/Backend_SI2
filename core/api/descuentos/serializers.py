@@ -34,11 +34,13 @@ class ServicioDescuentoSerializer(serializers.ModelSerializer):
                 d2 = sd.descuento
                 s2, e2 = d2.fecha_inicio, d2.fecha_fin
 
-                # Considera None como -∞ / +∞ usando datetime
-                s1_eff = s1 or datetime.datetime.min.replace(tzinfo=timezone.utc)  # Fecha mínima
-                e1_eff = e1 or datetime.datetime.max.replace(tzinfo=timezone.utc)  # Fecha máxima
-                s2_eff = s2 or datetime.datetime.min.replace(tzinfo=timezone.utc)  # Fecha mínima
-                e2_eff = e2 or datetime.datetime.max.replace(tzinfo=timezone.utc)  # Fecha máxima
+                # Considera None como -∞ / +∞ usando datetime timezone-aware
+                # Usar el timezone actual de Django en lugar de UTC específico
+                current_tz = timezone.get_current_timezone()
+                s1_eff = s1 or timezone.make_aware(datetime.datetime.min, current_tz)  # Fecha mínima
+                e1_eff = e1 or timezone.make_aware(datetime.datetime.max.replace(microsecond=0), current_tz)  # Fecha máxima
+                s2_eff = s2 or timezone.make_aware(datetime.datetime.min, current_tz)  # Fecha mínima  
+                e2_eff = e2 or timezone.make_aware(datetime.datetime.max.replace(microsecond=0), current_tz)  # Fecha máxima
 
                 # Validación de solapamiento de fechas
                 if s1_eff <= e2_eff and s2_eff <= e1_eff:

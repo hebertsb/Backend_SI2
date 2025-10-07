@@ -1,0 +1,28 @@
+{
+  "fecha_inicio": "2025-10-15T09:00:00Z",
+  "estado": "PENDIENTE",
+  "total": "250.00",
+  "moneda": "BOB",
+  "detalles": [
+    {
+      "servicio": 1,
+      "cantidad": 2,
+      "fecha_servicio": "2025-10-15T09:00:00Z"
+    }
+  ],
+  "acompanantes": [
+    {
+      "acompanante": {
+        "nombres": "Ana María",
+        "apellidos": "González Pérez",
+        "documento": "12345678",
+        "fecha_nacimiento": "1990-05-15",
+        "email": "ana.gonzalez@email.com",
+        "telefono": "+591 70123456",
+        "nacionalidad": "Boliviana"
+      },
+      "estado": "CONFIRMADO",
+      "es_titular": false
+    }
+  ]
+}
