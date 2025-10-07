@@ -9,7 +9,7 @@ from django.db import models
 from .permissions import IsOperadorOrReadOnly  # 👈 NUEVO
 
 class DescuentoViewSet(viewsets.ModelViewSet):
-    queryset = Descuento.objects.all().order_by('-created_at')
+    queryset = Descuento.objects.all().order_by('-id')
     serializer_class = DescuentoSerializer
     permission_classes = [IsOperadorOrReadOnly]       # 👈 NUEVO
 

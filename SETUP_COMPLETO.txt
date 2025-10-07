@@ -1,0 +1,263 @@
+# GUÍA COMPLETA DE CONFIGURACIÓN Y EJECUCIÓN - BACKEND SI2
+# Sistema de Información II - Universidad Autónoma Gabriel René Moreno
+# Fecha: 6 de octubre de 2025
+
+===============================================================================
+🚀 INSTRUCCIONES PARA CONFIGURAR Y EJECUTAR EL PROYECTO BACKEND
+===============================================================================
+
+## PRERREQUISITOS
+- Python 3.8 o superior
+- Git instalado
+- Editor de código (VS Code recomendado)
+
+===============================================================================
+📁 PASO 1: CLONAR Y CONFIGURAR EL PROYECTO
+===============================================================================
+
+1. Clonar el repositorio:
+   git clone https://github.com/hebertsb/Backend_SI2.git
+   cd Backend_SI2
+
+2. Crear entorno virtual:
+   python -m venv .venv
+
+3. Activar entorno virtual:
+   # En Windows (PowerShell):
+   .\.venv\Scripts\Activate.ps1
+   
+   # En Windows (CMD):
+   .venv\Scripts\activate.bat
+   
+   # En Linux/Mac:
+   source .venv/bin/activate
+
+4. Instalar dependencias:
+   pip install -r requirements.txt
+
+===============================================================================
+🗄️ PASO 2: CONFIGURAR BASE DE DATOS
+===============================================================================
+
+5. Verificar configuración de base de datos:
+   # El proyecto está configurado para usar SQLite en desarrollo
+   # La configuración está en backend/settings.py
+
+6. Generar migraciones (si no existen):
+   python manage.py makemigrations core
+   python manage.py makemigrations authz
+
+7. Aplicar migraciones:
+   python manage.py migrate
+
+8. Verificar que se creó la base de datos:
+   # Debe aparecer el archivo db.sqlite3 en la raíz del proyecto
+
+===============================================================================
+👤 PASO 3: CREAR USUARIO ADMINISTRADOR
+===============================================================================
+
+9. Crear superusuario:
+   python manage.py createsuperuser
+   
+   # Te pedirá:
+   # - Email: admin@test.com (o el que prefieras)
+   # - Nombres: Admin
+   # - Apellidos: Sistema
+   # - Password: (elige una contraseña segura)
+
+===============================================================================
+📊 PASO 4: POBLAR LA BASE DE DATOS (DATOS INICIALES)
+===============================================================================
+
+10. Cargar datos de roles y usuarios (si existen):
+    # Verificar si existen archivos de fixtures:
+    python manage.py loaddata authz/fixtures/roles_seed.json
+    python manage.py loaddata authz/fixtures/datos_usuarios.json
+
+11. Cargar datos de catálogo (si existen):
+    python manage.py loaddata catalogo/fixtures/initial_data.json
+
+12. Cargar datos de descuentos (si existen):
+    python manage.py loaddata descuentos/fixtures/descuentos.json
+
+13. Cargar datos de cupones (si existen):
+    python manage.py loaddata cupones/fixtures/cupones_data.json
+
+===============================================================================
+🔧 PASO 5: VERIFICAR CONFIGURACIÓN
+===============================================================================
+
+14. Verificar que no hay errores:
+    python manage.py check
+
+15. Verificar las migraciones:
+    python manage.py showmigrations
+
+16. (Opcional) Verificar la estructura de la base de datos:
+    python manage.py inspectdb | findstr "class"
+
+===============================================================================
+🚀 PASO 6: EJECUTAR EL SERVIDOR
+===============================================================================
+
+17. Iniciar el servidor de desarrollo:
+    python manage.py runserver
+
+    # El servidor se ejecutará en: http://127.0.0.1:8000/
+
+18. Probar los endpoints principales:
+    # Admin: http://127.0.0.1:8000/admin/
+    # API Docs: http://127.0.0.1:8000/docs/
+    # API Schema: http://127.0.0.1:8000/api/schema/
+
+===============================================================================
+📝 COMANDOS ADICIONALES ÚTILES
+===============================================================================
+
+# Crear datos de prueba con shell de Django:
+python manage.py shell
+
+# En el shell, ejecutar:
+from authz.models import Usuario, Rol
+from core.models import *
+
+# Crear rol administrador
+admin_rol, created = Rol.objects.get_or_create(
+    nombre="Administrador",
+    defaults={'descripcion': 'Acceso completo al sistema'}
+)
+
+# Crear categoría de ejemplo
+categoria, created = Categoria.objects.get_or_create(
+    nombre="Turismo Aventura",
+    defaults={'descripcion': 'Actividades de aventura y deportes extremos'}
+)
+
+# Crear servicio de ejemplo
+servicio, created = Servicio.objects.get_or_create(
+    nombre="Tour Ciudad",
+    defaults={
+        'descripcion': 'Recorrido por los principales atractivos de la ciudad',
+        'costo': 150.00,
+        'duracion': 480,  # 8 horas en minutos
+        'categoria': categoria
+    }
+)
+
+print("Datos de prueba creados exitosamente!")
+
+# Salir del shell con: exit()
+
+===============================================================================
+🐛 SOLUCIÓN DE PROBLEMAS COMUNES
+===============================================================================
+
+❌ Error: "No module named 'nombre_modulo'"
+✅ Solución: pip install -r requirements.txt
+
+❌ Error: "django.db.utils.OperationalError: no such table"
+✅ Solución: python manage.py migrate
+
+❌ Error: "Permission denied" al activar entorno virtual
+✅ Solución: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+❌ Error: "Port already in use"
+✅ Solución: python manage.py runserver 8001 (cambiar puerto)
+
+❌ Error al crear superusuario
+✅ Solución: Asegúrate de que las migraciones estén aplicadas
+
+===============================================================================
+📋 ESTRUCTURA DEL PROYECTO
+===============================================================================
+
+Backend_SI2/
+├── authz/              # Autenticación y autorización
+├── backend/            # Configuración principal Django
+├── catalogo/           # Gestión de catálogo de servicios
+├── core/               # Modelos centralizados
+├── cupones/            # Sistema de cupones
+├── descuentos/         # Sistema de descuentos
+├── reservas/           # Gestión de reservas
+├── soporte/            # Sistema de soporte
+├── templates/          # Plantillas HTML
+├── manage.py           # Comando principal Django
+├── requirements.txt    # Dependencias Python
+├── db.sqlite3         # Base de datos SQLite (se crea automáticamente)
+└── README.md          # Documentación principal
+
+===============================================================================
+🔑 ENDPOINTS PRINCIPALES DE LA API
+===============================================================================
+
+# Autenticación
+POST /api/auth/login/           # Iniciar sesión
+POST /api/auth/register/        # Registrar usuario
+POST /api/auth/refresh/         # Refrescar token
+
+# Usuarios
+GET /api/usuarios/              # Listar usuarios
+POST /api/usuarios/             # Crear usuario
+GET /api/usuarios/{id}/         # Obtener usuario específico
+
+# Servicios
+GET /api/servicios/             # Listar servicios
+POST /api/servicios/            # Crear servicio
+GET /api/servicios/{id}/        # Obtener servicio específico
+
+# Reservas
+GET /api/reservas/              # Listar reservas
+POST /api/reservas/             # Crear reserva
+GET /api/reservas/{id}/         # Obtener reserva específica
+
+# Descuentos
+GET /api/descuentos/            # Listar descuentos
+POST /api/descuentos/           # Crear descuento
+
+# Soporte
+GET /api/tickets/               # Listar tickets de soporte
+POST /api/tickets/              # Crear ticket
+
+===============================================================================
+🔧 VARIABLES DE ENTORNO (OPCIONAL)
+===============================================================================
+
+Crear archivo .env en la raíz del proyecto con:
+
+DEBUG=True
+SECRET_KEY=tu-clave-secreta-aqui
+DATABASE_URL=sqlite:///db.sqlite3
+EMAIL_HOST_USER=tu-email@gmail.com
+EMAIL_HOST_PASSWORD=tu-password-app
+
+===============================================================================
+📞 CONTACTO Y SOPORTE
+===============================================================================
+
+Si encuentras problemas:
+1. Revisa los logs en la terminal
+2. Verifica que todas las dependencias estén instaladas
+3. Asegúrate de que el entorno virtual esté activado
+4. Contacta al equipo de desarrollo
+
+Repository: https://github.com/hebertsb/Backend_SI2
+Desarrollado para: Sistema de Información II - UAGRM
+
+===============================================================================
+✅ CHECKLIST FINAL
+===============================================================================
+
+□ Entorno virtual creado y activado
+□ Dependencias instaladas (requirements.txt)
+□ Migraciones aplicadas
+□ Base de datos creada (db.sqlite3)
+□ Superusuario creado
+□ Datos iniciales cargados (si existen)
+□ Servidor ejecutándose sin errores
+□ Admin panel accesible
+□ API endpoints respondiendo
+
+¡Proyecto configurado exitosamente! 🎉
+
+===============================================================================

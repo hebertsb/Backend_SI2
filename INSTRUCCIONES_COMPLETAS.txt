@@ -1,0 +1,301 @@
+# GUÍA COMPLETA - CONFIGURACIÓN BACKEND SI2
+# Sistema de Información II - UAGRM
+# Fecha: 6 de octubre de 2025
+# ¡SIGUE ESTOS PASOS EXACTAMENTE COMO ESTÁN ESCRITOS!
+
+===============================================================================
+🛠️ PASO A PASO COMPLETO - CONFIGURACIÓN DESDE CERO
+===============================================================================
+
+## ⚡ COMANDOS RÁPIDOS (Copia y pega cada línea en la terminal)
+
+# 1. Clonar repositorio
+git clone https://github.com/hebertsb/Backend_SI2.git
+cd Backend_SI2
+
+# 2. Crear y activar entorno virtual
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+# 3. Instalar dependencias
+pip install -r requirements.txt
+
+# 4. Aplicar migraciones
+python manage.py migrate
+
+# 5. Cargar datos iniciales (ejecutar UNO POR UNO)
+python manage.py loaddata authz/fixtures/roles_seed.json
+python manage.py loaddata authz/fixtures/datos_usuarios.json
+python manage.py loaddata catalogo/fixtures/categoria.json
+python manage.py loaddata catalogo/fixtures/servicio.json
+python manage.py loaddata catalogo/fixtures/itinerario.json
+python manage.py loaddata descuentos/fixtures/datos_descuentos.json
+python manage.py loaddata cupones/fixtures/datos_cupones.json
+
+# 6. Ejecutar scripts de población (OPCIONAL - solo si quieres más datos)
+python scripts/load_initial_users.py
+python scripts/load_catalog_initial.py
+python scripts/load_descuentos.py
+python scripts/load_paquetes.py
+
+# 7. Crear superusuario (ejecutar y seguir las instrucciones)
+python manage.py createsuperuser
+
+# 8. Verificar configuración
+python manage.py check
+
+# 9. Iniciar servidor
+python manage.py runserver
+
+===============================================================================
+📋 INSTRUCCIONES DETALLADAS PASO A PASO
+===============================================================================
+
+## PASO 1: PREPARAR EL ENTORNO
+
+1.1. Abrir PowerShell como Administrador
+1.2. Navegar a tu carpeta de proyectos:
+     cd C:\tu\carpeta\de\proyectos
+
+1.3. Clonar el repositorio:
+     git clone https://github.com/hebertsb/Backend_SI2.git
+
+1.4. Entrar al directorio:
+     cd Backend_SI2
+
+## PASO 2: CONFIGURAR PYTHON
+
+2.1. Verificar Python instalado:
+     python --version
+     # Debe mostrar Python 3.8 o superior
+
+2.2. Crear entorno virtual:
+     python -m venv .venv
+
+2.3. Activar entorno virtual:
+     .\.venv\Scripts\Activate.ps1
+     
+     # Si da error de permisos, ejecutar primero:
+     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+2.4. Verificar que el entorno esté activo:
+     # Debe aparecer (.venv) al inicio de la línea de comandos
+
+## PASO 3: INSTALAR DEPENDENCIAS
+
+3.1. Actualizar pip:
+     python -m pip install --upgrade pip
+
+3.2. Instalar dependencias del proyecto:
+     pip install -r requirements.txt
+     
+     # Este comando instala todas las librerías necesarias
+
+## PASO 4: CONFIGURAR BASE DE DATOS
+
+4.1. Aplicar migraciones:
+     python manage.py migrate
+     
+     # Esto crea la base de datos SQLite (db.sqlite3)
+
+4.2. Verificar que se creó la base de datos:
+     dir | findstr db.sqlite3
+     # Debe aparecer el archivo db.sqlite3
+
+## PASO 5: POBLAR LA BASE DE DATOS CON DATOS INICIALES
+
+5.1. Cargar roles de usuario:
+     python manage.py loaddata authz/fixtures/roles_seed.json
+
+5.2. Cargar usuarios iniciales:
+     python manage.py loaddata authz/fixtures/datos_usuarios.json
+
+5.3. Cargar categorías de servicios:
+     python manage.py loaddata catalogo/fixtures/categoria.json
+
+5.4. Cargar servicios:
+     python manage.py loaddata catalogo/fixtures/servicio.json
+
+5.5. Cargar itinerarios:
+     python manage.py loaddata catalogo/fixtures/itinerario.json
+
+5.6. Cargar descuentos:
+     python manage.py loaddata descuentos/fixtures/datos_descuentos.json
+
+5.7. Cargar cupones:
+     python manage.py loaddata cupones/fixtures/datos_cupones.json
+
+## PASO 6: CREAR USUARIO ADMINISTRADOR
+
+6.1. Ejecutar comando para crear superusuario:
+     python manage.py createsuperuser
+
+6.2. Cuando te pida datos, ingresar:
+     Email: admin@test.com
+     Nombres: Admin
+     Apellidos: Sistema
+     Password: (elige una contraseña segura, ej: admin123)
+
+## PASO 7: VERIFICAR CONFIGURACIÓN
+
+7.1. Verificar que no hay errores:
+     python manage.py check
+     # Debe mostrar "System check identified no issues"
+
+7.2. Verificar migraciones aplicadas:
+     python manage.py showmigrations
+     # Todas deben tener [X]
+
+## PASO 8: INICIAR EL SERVIDOR
+
+8.1. Ejecutar servidor de desarrollo:
+     python manage.py runserver
+
+8.2. Verificar que funciona:
+     # Debe mostrar: "Starting development server at http://127.0.0.1:8000/"
+
+8.3. Abrir navegador y probar:
+     - Admin: http://127.0.0.1:8000/admin/
+     - API Docs: http://127.0.0.1:8000/docs/
+     - API Base: http://127.0.0.1:8000/api/
+
+===============================================================================
+🗂️ SCRIPTS ADICIONALES PARA MÁS DATOS (OPCIONAL)
+===============================================================================
+
+Si quieres cargar más datos de ejemplo, ejecutar estos scripts:
+
+# Cargar más usuarios
+python scripts/load_initial_users.py
+
+# Cargar más datos del catálogo
+python scripts/load_catalog_initial.py
+
+# Cargar más descuentos
+python scripts/load_descuentos.py
+
+# Cargar paquetes turísticos
+python scripts/load_paquetes.py
+
+# Cargar reservas de ejemplo
+python scripts/load_reservas.py
+
+===============================================================================
+🔍 VERIFICAR QUE TODO FUNCIONA
+===============================================================================
+
+## Probar el Admin Panel:
+1. Ir a: http://127.0.0.1:8000/admin/
+2. Ingresar con: admin@test.com / admin123
+3. Debe mostrar las siguientes secciones:
+   - AUTHZ (Roles, Usuarios)
+   - CORE (Servicios, Reservas, Cupones, etc.)
+
+## Probar la API:
+1. Ir a: http://127.0.0.1:8000/docs/
+2. Debe mostrar la documentación interactiva de la API
+3. Probar algunos endpoints como:
+   - GET /api/servicios/
+   - GET /api/usuarios/
+
+===============================================================================
+❌ SOLUCIÓN DE PROBLEMAS COMUNES
+===============================================================================
+
+## Error: "comando no reconocido"
+- Verificar que Python esté instalado
+- Verificar que estés en el directorio correcto del proyecto
+
+## Error: "No module named..."
+- Verificar que el entorno virtual esté activado (.venv)
+- Ejecutar: pip install -r requirements.txt
+
+## Error: "Permission denied" al activar .venv
+- Ejecutar: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+- Luego: .\.venv\Scripts\Activate.ps1
+
+## Error: "no such table"
+- Ejecutar: python manage.py migrate
+
+## Error: "DoesNotExist" al cargar fixtures
+- Cargar los fixtures en el orden especificado en esta guía
+
+## Error: "Port already in use"
+- Usar otro puerto: python manage.py runserver 8001
+
+===============================================================================
+📊 DATOS DISPONIBLES DESPUÉS DE LA CONFIGURACIÓN
+===============================================================================
+
+Una vez completados todos los pasos, tendrás:
+
+✅ Usuarios de prueba en el sistema
+✅ Roles de usuario (Admin, Cliente, Operador)
+✅ Categorías de servicios turísticos
+✅ Servicios de ejemplo
+✅ Itinerarios predefinidos
+✅ Descuentos configurados
+✅ Cupones de descuento
+✅ Usuario administrador para acceder al panel
+
+===============================================================================
+🌐 ENDPOINTS PRINCIPALES DE LA API
+===============================================================================
+
+Base URL: http://127.0.0.1:8000
+
+# Autenticación
+POST /api/auth/login/
+POST /api/auth/register/
+POST /api/auth/refresh/
+
+# Usuarios y Roles
+GET /api/usuarios/
+GET /api/roles/
+
+# Catálogo
+GET /api/servicios/
+GET /api/categorias/
+GET /api/paquetes/
+
+# Reservas
+GET /api/reservas/
+POST /api/reservas/
+
+# Descuentos y Cupones
+GET /api/descuentos/
+GET /api/cupones/
+
+# Soporte
+GET /api/tickets/
+POST /api/tickets/
+
+===============================================================================
+🏁 CHECKLIST FINAL - VERIFICAR QUE TODO ESTÉ FUNCIONANDO
+===============================================================================
+
+□ Entorno virtual activado (aparece .venv en la terminal)
+□ Archivo db.sqlite3 creado en la raíz del proyecto
+□ Comando "python manage.py check" sin errores
+□ Servidor corriendo en http://127.0.0.1:8000/
+□ Admin accesible en http://127.0.0.1:8000/admin/
+□ API docs accesible en http://127.0.0.1:8000/docs/
+□ Puedes hacer login en el admin con admin@test.com
+□ Se ven datos en las secciones del admin
+
+===============================================================================
+🆘 CONTACTO PARA SOPORTE
+===============================================================================
+
+Si algo no funciona después de seguir todos estos pasos:
+
+1. Revisar los mensajes de error en la terminal
+2. Verificar que seguiste cada paso exactamente
+3. Contactar al equipo de desarrollo
+
+Proyecto: Backend SI2 - UAGRM
+Repository: https://github.com/hebertsb/Backend_SI2
+
+¡ÉXITO! El proyecto debería estar funcionando completamente 🚀
+
+===============================================================================

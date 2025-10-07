@@ -136,7 +136,7 @@ class Paquete(models.Model):
     imagenes = models.JSONField()
     servicios = models.ManyToManyField(Servicio)
     itinerario = models.ManyToManyField(Itinerario, related_name="paquetes")
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name="paquetes", default=lambda: 1) # type: ignore
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name="paquetes")
     incluido = models.JSONField()
     no_incluido = models.JSONField()
     fechas_disponibles = models.JSONField()

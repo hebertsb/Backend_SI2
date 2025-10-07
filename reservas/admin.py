@@ -53,8 +53,8 @@ class ReservaAdmin(admin.ModelAdmin):
 
 @admin.register(Acompanante)
 class AcompananteAdmin(admin.ModelAdmin):
-    list_display = ['documento', 'nombre', 'apellido', 'email', 'telefono']
-    search_fields = ['documento', 'nombre', 'apellido', 'email']
+    list_display = ['documento', 'nombres', 'apellidos', 'email', 'telefono']
+    search_fields = ['documento', 'nombres', 'apellidos', 'email']
     list_filter = ['nacionalidad']
 
 
