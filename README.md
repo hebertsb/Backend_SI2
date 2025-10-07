@@ -490,7 +490,7 @@ Incluye en tu reporte:
 
 **Universidad**: Universidad Autónoma Gabriel René Moreno  
 **Materia**: Sistema de Información II  
-**Año**: 2024  
+**Año**: 2025  
 **Tecnologías**: Django 5.2.6, Python 3.12, SQLite/PostgreSQL  
 
 **🎯 Objetivo Académico**: Demostrar competencias en desarrollo de APIs REST, autenticación JWT, modelado de datos y arquitectura de software.
