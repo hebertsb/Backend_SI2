@@ -19,8 +19,13 @@
         "https://static.wixstatic.com/media/55c14c_7fdd67fed43b48de99f31fe65053c641~mv2.jpg/v1/fill/w_250,h_375,al_c,q_90,enc_auto/55c14c_7fdd67fed43b48de99f31fe65053c641~mv2.jpg",
         "https://static.wixstatic.com/media/55c14c_5c5ec2c6abaa4f38ab57a319fc096445~mv2.jpg/v1/fill/w_250,h_375,al_c,q_90,enc_auto/55c14c_5c5ec2c6abaa4f38ab57a319fc096445~mv2.jpg"
       ],
-      "servicios": [1],
-      "itinerario": [1, 2],
+      "servicios": [
+        1
+      ],
+      "itinerario": [
+        1,
+        2
+      ],
       "incluido": [
         "Tour por la ciudad",
         "Bungee jumping",
@@ -28,11 +33,16 @@
         "Caminata en la selva",
         "Cena privada con chef"
       ],
-      "no_incluido": ["Vuelos internacionales", "Seguro de viaje"],
-      "fechas_disponibles": ["2023-10-01", "2023-10-15", "2023-11-01"],
-      "descuento": "10.00",
-      "created_at": "2023-09-14T00:00:00Z",
-      "updated_at": "2023-09-14T00:00:00Z"
+      "no_incluido": [
+        "Vuelos internacionales",
+        "Seguro de viaje"
+      ],
+      "fechas_disponibles": [
+        "2023-10-01",
+        "2023-10-15",
+        "2023-11-01"
+      ],
+      "descuento": "10.00"
     }
   },
   {
@@ -54,19 +64,27 @@
       "imagenes": [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKz8RnQh8qTwqiSeISYPOTF2LfIL_XDBJRcA&s"
       ],
-      "servicios": [2],
-      "itinerario": [3],
+      "servicios": [
+        2
+      ],
+      "itinerario": [
+        3
+      ],
       "incluido": [
         "Retiros de yoga",
         "Masajes terapéuticos",
         "Tour gastronómico local",
         "Hotel 5 estrellas"
       ],
-      "no_incluido": ["Transporte al aeropuerto", "Bebidas alcohólicas"],
-      "fechas_disponibles": ["2023-09-20", "2023-10-05"],
-      "descuento": "5.00",
-      "created_at": "2023-09-14T00:00:00Z",
-      "updated_at": "2023-09-14T00:00:00Z"
+      "no_incluido": [
+        "Transporte al aeropuerto",
+        "Bebidas alcohólicas"
+      ],
+      "fechas_disponibles": [
+        "2023-09-20",
+        "2023-10-05"
+      ],
+      "descuento": "5.00"
     }
   },
   {
@@ -88,19 +106,27 @@
       "imagenes": [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMV-_kDyCv5HA4ADRdvC7X8bgV9NYNeMdniQ&s"
       ],
-      "servicios": [3],
-      "itinerario": [3],
+      "servicios": [
+        3
+      ],
+      "itinerario": [
+        3
+      ],
       "incluido": [
         "Visita a museos de arte",
         "Espectáculo de danza folklórica",
         "Clase de cocina regional",
         "Transporte privado al aeropuerto"
       ],
-      "no_incluido": ["Almuerzos", "Souvenirs"],
-      "fechas_disponibles": ["2023-11-10", "2023-12-01"],
-      "descuento": "15.00",
-      "created_at": "2023-09-14T00:00:00Z",
-      "updated_at": "2023-09-14T00:00:00Z"
+      "no_incluido": [
+        "Almuerzos",
+        "Souvenirs"
+      ],
+      "fechas_disponibles": [
+        "2023-11-10",
+        "2023-12-01"
+      ],
+      "descuento": "15.00"
     }
   },
   {
@@ -122,8 +148,14 @@
       "imagenes": [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_f7GPeewMEAdnDymaTi6vAksCe0BFPX1PzQ&s"
       ],
-      "servicios": [1, 2],
-      "itinerario": [2, 3],
+      "servicios": [
+        1,
+        2
+      ],
+      "itinerario": [
+        2,
+        3
+      ],
       "incluido": [
         "Avistamiento de aves",
         "Ecoturismo",
@@ -131,11 +163,15 @@
         "Caminata en la selva",
         "Tour en autobús turístico"
       ],
-      "no_incluido": ["Equipo personal", "Propinas"],
-      "fechas_disponibles": ["2023-10-20", "2023-11-15"],
-      "descuento": "8.00",
-      "created_at": "2023-09-14T00:00:00Z",
-      "updated_at": "2023-09-14T00:00:00Z"
+      "no_incluido": [
+        "Equipo personal",
+        "Propinas"
+      ],
+      "fechas_disponibles": [
+        "2023-10-20",
+        "2023-11-15"
+      ],
+      "descuento": "8.00"
     }
   },
   {
@@ -157,19 +193,27 @@
       "imagenes": [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwYLgPb8lnzGfMPqTYtQKaVqQmnzCDlzbfNw&s"
       ],
-      "servicios": [1],
-      "itinerario": [1],
+      "servicios": [
+        1
+      ],
+      "itinerario": [
+        1
+      ],
       "incluido": [
         "Crucero de lujo",
         "Cena privada con chef",
         "Transporte privado al aeropuerto",
         "Hotel 5 estrellas"
       ],
-      "no_incluido": ["Actividades opcionales", "Bebidas premium"],
-      "fechas_disponibles": ["2023-12-01", "2024-01-15"],
-      "descuento": "20.00",
-      "created_at": "2023-09-14T00:00:00Z",
-      "updated_at": "2023-09-14T00:00:00Z"
+      "no_incluido": [
+        "Actividades opcionales",
+        "Bebidas premium"
+      ],
+      "fechas_disponibles": [
+        "2023-12-01",
+        "2024-01-15"
+      ],
+      "descuento": "20.00"
     }
   }
 ]

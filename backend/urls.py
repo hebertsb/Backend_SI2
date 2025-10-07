@@ -3,14 +3,14 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from authz.views import RolViewSet, UsuarioViewSet
-from catalogo.views import CategoriaViewSet, ServicioViewSet, ItinerarioViewSet, PaqueteViewSet
-from reservas.views import (
+from core.api.catalogo.views import CategoriaViewSet, ServicioViewSet, ItinerarioViewSet, PaqueteViewSet
+from core.api.reservas.views import (
     ReservaViewSet, AcompananteViewSet, ReservaAcompananteViewSet, 
     GestionReprogramacionAPIView, ReglasReprogramacionViewSet, ConfiguracionGlobalViewSet,
     ValidadorReglasAPIView, ResumenReglasAPIView, GestionConfiguracionAPIView
 )
-# from cupones.views import CuponViewSet  # Commented out until CuponViewSet is implemented
-from descuentos.views import DescuentoViewSet, ServicioDescuentoViewSet, precio_servicio
+# from core.api.cupones.views import CuponViewSet  # Commented out until CuponViewSet is implemented
+from core.api.descuentos.views import DescuentoViewSet, ServicioDescuentoViewSet, precio_servicio
 
 router = DefaultRouter()
 router.register(r"roles", RolViewSet)
@@ -40,7 +40,7 @@ urlpatterns = [
     path('api/servicios/<int:pk>/precio/', precio_servicio, name='precio-servicio'),
     
     # URLs del sistema de soporte
-    path('api/soporte/', include('soporte.urls')),
+    path('api/soporte/', include('core.api.soporte.urls')),
     
     # URLs específicas para reprogramaciones
     path('api/reservas/<int:reserva_id>/reprogramar-avanzado/', 

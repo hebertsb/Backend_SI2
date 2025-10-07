@@ -9,9 +9,7 @@
         "Recepción en aeropuerto",
         "Tour por la ciudad",
         "Cena privada con chef"
-      ],
-      "created_at": "2025-09-15T00:00:00Z",
-      "updated_at": "2025-09-15T00:00:00Z"
+      ]
     }
   },
   {
@@ -24,9 +22,7 @@
         "Bungee jumping",
         "Escalada en roca",
         "Caminata en la selva"
-      ],
-      "created_at": "2025-09-15T00:00:00Z",
-      "updated_at": "2025-09-15T00:00:00Z"
+      ]
     }
   },
   {
@@ -39,9 +35,7 @@
         "Visita a museos de arte",
         "Espectáculo de danza folklórica",
         "Clase de cocina regional"
-      ],
-      "created_at": "2025-09-15T00:00:00Z",
-      "updated_at": "2025-09-15T00:00:00Z"
+      ]
     }
   }
 ]

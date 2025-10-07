@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from django.utils import timezone
 from datetime import timedelta
 from core.models import Reserva
-from reservas.notifications import NotificacionReprogramacion
+from core.api.reservas.notifications import NotificacionReprogramacion
 import logging
 
 logger = logging.getLogger(__name__)

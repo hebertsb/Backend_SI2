@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CuponesConfig(AppConfig):
+class BookingConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'cupones'
+    name = 'core.api.reservas'

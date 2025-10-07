@@ -50,22 +50,12 @@ if ($RunMigrations) {
 }
 
 if ($LoadData) {
-    Confirm-Or-Exit "Cargar datos iniciales (scripts/load_*.py)?"
-    Write-Host "Running data loader scripts..."
-    $loaders = @(
-        'scripts\load_catalog_initial.py',
-        'scripts\load_paquetes.py',
-        'scripts\load_descuentos.py',
-        'scripts\load_reservas.py'
-    )
-    foreach ($f in $loaders) {
-        if (Test-Path $f) {
-            Write-Host "Running $f"
-            $env:PYTHONPATH = '.'
-            .\.venv\Scripts\python.exe $f
-        } else {
-            Write-Host "Skipping missing loader: $f"
-        }
+    Confirm-Or-Exit "Cargar todos los fixtures automaticamente?"
+    Write-Host "🔄 Ejecutando setup completo de base de datos..."
+    .\.venv\Scripts\python.exe manage.py setup_database --fixtures-only
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "❌ Error en setup de base de datos"
+        Read-Host "Presiona Enter para continuar de todos modos..."
     }
 }
 

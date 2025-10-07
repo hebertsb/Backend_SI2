@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CatalogoConfig(AppConfig):
+class CuponesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'catalogo'
+    name = 'core.api.cupones'

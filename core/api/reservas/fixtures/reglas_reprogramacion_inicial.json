@@ -13,9 +13,10 @@
       "fecha_inicio_vigencia": null,
       "fecha_fin_vigencia": null,
       "activa": true,
-      "prioridad": 1,
       "mensaje_error": "Debe reprogramar con al menos 24 horas de anticipación.",
-      "condiciones_extras": {}
+      "condiciones_extras": {},
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
     }
   },
   {
@@ -32,9 +33,10 @@
       "fecha_inicio_vigencia": null,
       "fecha_fin_vigencia": null,
       "activa": true,
-      "prioridad": 1,
       "mensaje_error": "Ha alcanzado el límite máximo de 3 reprogramaciones por reserva.",
-      "condiciones_extras": {}
+      "condiciones_extras": {},
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
     }
   },
   {
@@ -51,9 +53,10 @@
       "fecha_inicio_vigencia": null,
       "fecha_fin_vigencia": null,
       "activa": true,
-      "prioridad": 1,
       "mensaje_error": "Los administradores pueden reprogramar con 12 horas de anticipación.",
-      "condiciones_extras": {}
+      "condiciones_extras": {},
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
     }
   },
   {
@@ -70,9 +73,10 @@
       "fecha_inicio_vigencia": null,
       "fecha_fin_vigencia": null,
       "activa": true,
-      "prioridad": 2,
       "mensaje_error": "No se permite reprogramar para días domingo.",
-      "condiciones_extras": {}
+      "condiciones_extras": {},
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
     }
   },
   {
@@ -89,9 +93,10 @@
       "fecha_inicio_vigencia": null,
       "fecha_fin_vigencia": null,
       "activa": true,
-      "prioridad": 1,
       "mensaje_error": "No puede hacer más de 3 reprogramaciones por día.",
-      "condiciones_extras": {}
+      "condiciones_extras": {},
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
     }
   },
   {
@@ -108,9 +113,10 @@
       "fecha_inicio_vigencia": null,
       "fecha_fin_vigencia": null,
       "activa": true,
-      "prioridad": 1,
       "mensaje_error": "La fecha ha alcanzado la capacidad máxima de reservas.",
-      "condiciones_extras": {}
+      "condiciones_extras": {},
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
     }
   }
 ]

@@ -45,12 +45,12 @@ INSTALLED_APPS = [
     "django_filters",
     "core",
     "authz",
-    "catalogo",
-    "reservas",
-    "cupones",
-    "soporte",
+    "core.api.catalogo",
+    "core.api.reservas",
+    "core.api.cupones",
+    "core.api.soporte",
     "corsheaders",
-    "descuentos",
+    "core.api.descuentos",
 ]
 
 MIDDLEWARE = [
