@@ -1,0 +1,39 @@
+{
+  "descuentos": [
+    {
+      "id": 2,
+      "codigo": "DSC101",
+      "tipo": "FIJO",
+      "valor": 100.00, 
+      "estado": true,
+      "fecha_inicio": "2025-09-15T20:00:00-04:00",
+      "fecha_fin": "2025-09-29T20:00:00-04:00"
+    },
+    {
+      "id": 1,
+      "codigo": "DESC10POR",
+      "tipo": "PORCENTAJE",
+      "valor": 10.00,  
+      "estado": true,
+      "fecha_inicio": "2025-08-15T20:00:00-04:00",
+      "fecha_fin": "2025-10-14T20:00:00-04:00"
+    }
+  ],
+  "servicios_descuentos": [
+    {
+      "servicio": 1,  
+      "descuento": 1,  
+      "prioridad": 1,
+      "exclusivo": true,
+      "estado": true
+    },
+    {
+      "servicio": 2,  
+      "descuento": 2,  
+      "prioridad": 1,
+      "exclusivo": true,
+      "estado": true
+    }
+  ]
+}
+    

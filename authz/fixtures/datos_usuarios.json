@@ -1,0 +1,68 @@
+
+[
+  {
+    "model": "authz.usuario",
+    "pk": 1,
+    "fields": {
+      "nombres": "Gabriel",
+      "apellidos": "Moreno",
+      "email": "gabriel.moreno@autonoma.edu.bo",
+      "password": "pbkdf2_sha256$1000000$VkJGCeCrkOdn2FUqts1lXm$rg/HiZTMzLq68mNlG8zh9tIfnKLr1NdaU6mfdXp2vW8=", 
+      "telefono": "70000001",
+      "estado": "ACTIVO",
+      "is_active": true,
+      "is_staff": true,
+      "date_joined": "2025-09-15T12:00:00Z",
+      "roles": [1]
+    }
+  },
+  {
+    "model": "authz.usuario",
+    "pk": 2,
+    "fields": {
+      "nombres": "María",
+      "apellidos": "Fernández",
+      "email": "maria.fernandez@autonoma.edu.bo",
+      "password": "pbkdf2_sha256$1000000$VkJGCeCrkOdn2FUqts1lXm$rg/HiZTMzLq68mNlG8zh9tIfnKLr1NdaU6mfdXp2vW8=",
+      "telefono": "70000002",
+      "estado": "ACTIVO",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2025-09-15T12:00:00Z",
+      "roles": [2]
+    }
+  },
+  {
+    "model": "authz.usuario",
+    "pk": 3,
+    "fields": {
+      "nombres": "Juan",
+      "apellidos": "Pérez",
+      "email": "juan.perez@autonoma.edu.bo",
+      "password": "pbkdf2_sha256$1000000$VkJGCeCrkOdn2FUqts1lXm$rg/HiZTMzLq68mNlG8zh9tIfnKLr1NdaU6mfdXp2vW8=",
+      "telefono": "70000003",
+      "estado": "ACTIVO",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2025-09-15T12:00:00Z",
+      "roles": [3]
+    }
+  }
+  ,
+  {
+    "model": "authz.usuario",
+    "pk": 4,
+    "fields": {
+      "nombres": "Soporte",
+      "apellidos": "Sistema",
+      "email": "soporte@autonoma.edu.bo",
+  "password": "pbkdf2_sha256$1000000$1CYoyGgCmVfpcF5ZJFJnyC$YJggJC+kIb4W/eCOCUxz4QtWeynCW61YkRdyFG90zVM=",
+      "telefono": "70000004",
+      "estado": "ACTIVO",
+      "is_active": true,
+      "is_staff": false,
+      "date_joined": "2025-09-17T12:00:00Z",
+      "roles": [4]
+    }
+  }
+]

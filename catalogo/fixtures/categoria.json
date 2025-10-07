@@ -1,0 +1,44 @@
+[
+  {
+    "model": "core.categoria",
+    "pk": 9,
+    "fields": {
+      "nombre": "Escapadas"
+    }
+  },
+  {
+    "model": "core.categoria",
+    "pk": 10,
+    "fields": {
+      "nombre": "Ecoturismo"
+    }
+  },
+  {
+    "model": "core.categoria",
+    "pk": 11,
+    "fields": {
+      "nombre": "Aventura"
+    }
+  },
+  {
+    "model": "core.categoria",
+    "pk": 12,
+    "fields": {
+      "nombre": "Selva"
+    }
+  },
+  {
+    "model": "core.categoria",
+    "pk": 13,
+    "fields": {
+      "nombre": "Cultural"
+    }
+  },
+  {
+    "model": "core.categoria",
+    "pk": 14,
+    "fields": {
+      "nombre": "Paquetes"
+    }
+  }
+]
